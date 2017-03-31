@@ -27,4 +27,28 @@ class DefaultController extends Controller
         return $this->render('JSAppBundle:Default:predicas.html.twig', []);
     }
 
+    /**
+     * @Route("/galerias", name="galerias")
+     */
+    public function galeriasAction()
+    {
+        return $this->render('JSAppBundle:Default:galerias.html.twig', []);
+    }
+
+    /**
+     * @Route("/asidice", name="asidice")
+     */
+    public function asidiceAction()
+    {
+        return $this->render('JSAppBundle:Default:asidice.html.twig', []);
+    }
+
+    /**
+     * @Route("/contactenos", name="contactenos")
+     */
+    public function contactenosAction()
+    {
+        return $this->render('JSAppBundle:Default:contactenos.html.twig', []);
+    }
+
 }

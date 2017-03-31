@@ -10,13 +10,21 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
-	/**
+    /**
      * @Route("/" , name="index")
      */
     public function indexAction()
     {
+        return $this->render('JSAppBundle:Default:index.html.twig', []);
+    }
 
-        return $this->render('JSAppBundle:Default:index.html.twig', array());
+    /**
+     * @Route("/predicas", name="predicas")
+     */
+    public function predicasAction()
+    {
+
+        return $this->render('JSAppBundle:Default:predicas.html.twig', []);
     }
 
 }

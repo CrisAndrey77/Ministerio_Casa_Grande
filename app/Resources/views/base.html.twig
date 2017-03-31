@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
     <title>Free Multipager Template : Linuji</title>
 
-    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS  -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'/>
 
 </head>
 <body>
 
-<div class="navbar navbar-inverse set-radius-zero" >
+<div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,12 +27,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-
         </div>
-
     </div>
 </div>
+
 <!-- LOGO HEADER END-->
 <section class="menu-section">
     <div class="container">
@@ -40,16 +38,16 @@
             <div class="col-md-2">
                 <a class="navbar-brand" href="{{ path('index') }}">
 
-                    <img src="{{ asset('img/structure/logo-small.jpg') }}" />
+                    <img src="{{ asset('img/structure/logo-small.jpg') }}"/>
                 </a>
             </div>
             <div class="col-md-10">
                 <div class="navbar-collapse collapse ">
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
-                        <li><a href="index.html" class="menu-top-active" >INICIO</a></li>
+                        <li><a href="{{ path('index') }}">INICIO</a></li>  {#class="menu-top-active"#}
 
-                        <li><a href="about.html">PRÉDICAS</a></li>
-                        <li><a href="gallery.html" >GALERÍAS</a></li>
+                        <li><a href="{{ path('predicas') }}">PRÉDICAS</a></li>
+                        <li><a href="gallery.html">GALERÍAS</a></li>
                         <li><a href="features.html">ASÍ DICE SU PALABRA</a></li>
                         <li><a href="contact.html">CONTÁCTENOS</a></li>
                         <li><a href="blank.html">BLANK PAGE</a></li>
@@ -60,280 +58,32 @@
         </div>
     </div>
 </section>
-<!-- MENU SECTION END-->
-<div id="slideshow-sec">
-    <div id="carousel-div" class="carousel slide" data-ride="carousel" >
 
-        <div class="carousel-inner">
-            <div class="item active">
-
-                <img src="/img/1.jpg" alt="" />
-                <div class="carousel-caption">
-                    <h1 class="wow slideInLeft" data-wow-duration="2s" > Multi Pager Template</h1>
-                    <h2 class="wow slideInRight" data-wow-duration="2s" >Muti Purpose Use</h2>
-                </div>
-
-            </div>
-            <div class="item">
-                <img src="/img/2.jpg" alt="" />
-                <div class="carousel-caption">
-                    <h1 class="wow slideInLeft" data-wow-duration="2s" >Awesome Usage</h1>
-                    <h2 class="wow slideInRight" data-wow-duration="2s" >Bootstrap 3.2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <img src="/img/3.jpg" alt="" />
-                <div class="carousel-caption">
-                    <h1 class="wow slideInLeft" data-wow-duration="2s" >Easy To Customize </h1>
-                    <h2 class="wow slideInRight" data-wow-duration="2s" >Free To Download</h2>
-                </div>
-
-            </div>
-        </div>
-        <!--INDICATORS-->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-div" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-div" data-slide-to="1"></li>
-            <li data-target="#carousel-div" data-slide-to="2"></li>
-        </ol>
-        <!--PREVIUS-NEXT BUTTONS-->
-        <a class="left carousel-control" href="#carousel-div" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-div" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
-</div>
-<!-- SLIDESHOW SECTION END-->
-<div class="below-slideshow">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="txt-block">
-
-                    <i class="fa fa-commenting fa-4x" aria-hidden="true"></i>
-
-                    <h4>Nuestra Doctrina</h4>
-                    <p >
-                        Creemos en la Palabra como la Máxima Autoridad expresada de la voluntad de Dios a los hombres.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="txt-block">
-
-
-                    <i class="fa fa-yelp fa-4x"></i>
-                    <h4>Nuestra Fe</h4>
-                    <p >
-                        Creemos en Jesucristo como el Único Mediador entre Dios y los hombres en quien hay Salvación.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="txt-block">
-
-
-                    <i class="fa fa-ioxhost fa-4x"></i>
-                    <h4>Nuestra Esperanza</h4>
-                    <p >
-                        Creemos que el Señor Jesús un día volverá por un pueblo redimido para su Reino de Poder  y Gloria.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!-- BELOW SLIDESHOW SECTION END-->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="tag-home">  Por tanto, al Rey de los siglos, inmortal, invisible, al único y sabio Dios, sea honor y gloria por los siglos de los siglos. Amén.
-                <strong>1 Timoteo 1:17</strong>.</h1>
-            <hr />
-        </div>
-    </div>
-</div>
-<!-- TAG HOME SECTION END-->
-
-<div class="container">
-
-    <div class="row pad-set">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="just-txt-div">
-                <h2>RECIBA UNA CORDIAL BIENVENIDA A NUESTRA IGLESIA!</h2>
-                <br />
-                <p>
-                    Querido(a) hermano (a), que el Señor te bendiga!
-                    Este sitio nació con el propósito de ser una herramienta de contacto y edificación cristiana para todo
-                    aquel visitante o miembro de nuestra Iglesia que desee estar actualizado y desee aumentar su conocimiento
-                    de la Palabra de Dios.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.
-                    Mauris sagittis felis dolor vitae. Mauris sagittis felis dolor vitae Mauris sagittis
-                    felis dolor vitae.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.
-                    Mauris sagittis felis dolor vitae. Mauris sagittis felis dolor vitae Mauris sagittis
-                    felis dolor vitae.
-                </p>
-            </div>
-
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="just-txt-div">
-                <br />
-                <iframe class="vedio-style" src="http://www.youtube.com/embed/VpZmIiIXuZ0"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--VEDIO SECTION END-->
-<div class="parallax-like">
-    <div class="overlay">
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="just-txt-div">
-                        <strong> 300+</strong>
-                        <p>
-                            Clients
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="just-txt-div">
-                        <strong> 100+</strong>
-                        <p>
-                            Offices
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="just-txt-div">
-                        <strong> 50000+</strong>
-                        <p>
-                            Employees
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="just-txt-div">
-                        <strong> 500+</strong>
-                        <p>
-                            Projects
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- PARALLAX LIKE SECTION END-->
-<div class="just-sec">
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="head-line">Ministerios Casa Grande</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="just-txt-div">
-
-
-                    <i class="fa fa-exchange fa-3x"></i>
-                    <h4>Quiénes Somos</h4>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                    </p>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="just-txt-div">
-
-
-                    <i class="fa fa-key fa-3x"></i>
-                    <h4>Misión</h4>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                    </p>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="just-txt-div">
-
-
-                    <i class="fa fa-legal fa-3x"></i>
-                    <h4>Visión</h4>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!--JUST SECTION END-->
-<div class="container " >
-    <div class="row ">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <br />
-        </div>
-    </div>
-    <div class="row ">
-    </div>
-</div>
-<!--CLIENT SECTION END-->
-<div class="container " >
-    <div class="row">
-
-        </div>
-    </div>
-</div>
+{% block body %}
+{% endblock %}
 <!--SET-DIV SECTION END-->
 
 <div class="footer-sec">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-
-                <h3> <strong>Nuestro Nacimiento</strong> </h3>
-                <p style="padding-right:50px;" >
+                <h3><strong>Nuestro Nacimiento</strong></h3>
+                <p style="padding-right:50px;">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
                 </p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social-div">
-
-
-
-                <h3> <strong>Redes Sociales</strong> </h3>
+                <h3><strong>Redes Sociales</strong></h3>
                 We love to be social,Catch Us On
-                <a href="#" ><h4>FACEBOOK </h4></a>
-                <a href="#" ><h4>TWITTER </h4></a>
-                <a href="#" ><h4>LINKEDIN </h4></a>
-
-
+                <a href="#"><h4>FACEBOOK </h4></a>
+                <a href="#"><h4>TWITTER </h4></a>
+                <a href="#"><h4>LINKEDIN </h4></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <h3> <strong>Ubicación</strong> </h3>
+                <h3><strong>Ubicación</strong></h3>
                 Reach Us Below:
-                <br />
+                <br/>
                 <h4>90/567, Raw Street Lane,</h4>
                 <h4>United States of America,</h4>
                 <h4>Pin: 309987-09</h4>
@@ -341,14 +91,16 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <hr />
+                <hr/>
                 <div style="text-align:right;padding:5px;">
-                    &copy;2014 yourdomain.com | <a href="http://www.binarytheme.com/" style="color:#fff;" target="_blank" >Designed By: Binarytheme.com</a>
+                    &copy;2014 yourdomain.com | <a href="http://www.binarytheme.com/" style="color:#fff;"
+                                                   target="_blank">Designed By: Binarytheme.com</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--FOOTER SECTION END-->
 <!-- WE PUT SCRIPTS AT THE END TO LOAD PAGE FASTER-->
 <!--CORE SCRIPTS PLUGIN-->
@@ -363,6 +115,7 @@
 <script src="/js/custom.js"></script>
 
 <script src="https://use.fontawesome.com/fabd73287c.js"></script>
+
 </body>
 
 </html>

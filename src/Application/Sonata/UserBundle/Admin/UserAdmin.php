@@ -44,7 +44,10 @@ class UserAdmin extends SonataUserAdmin
             }
         }
         parent::configureFormFields($formMapper);
-        $formMapper->add('dateOfBirth','sonata_type_date_picker');
+        $formMapper->add('dateOfBirth','sonata_type_date_picker',[
+                                        'format'        => 'dd/MM/yyyy',
+                                        'dp_use_current'=> false,
+        ]);
         $formMapper->add('file','file', $fileFieldOptions);        
     }
     

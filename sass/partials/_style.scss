@@ -13,3 +13,19 @@
 .below-slideshow{
   background-color: $azulcasa;
 }
+.navbar {
+  min-height: 0;
+}
+.navbar-brand {
+  height: auto;
+  img{
+    max-height: 150px;
+  }
+}
+
+.below-slideshow{
+  text-align: center;
+}
+.just-txt-div{
+  text-align: center;
+}

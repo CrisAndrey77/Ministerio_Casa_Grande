@@ -1,0 +1,16 @@
+<div class="wrap-profile clearfix">
+    <div class="info-profile">
+        {% if is_granted('ROLE_PACIENTE') %}
+            <a class="profile" href="{{ path('user_profile', { 'id' : usuario.id, 'slug' : usuario.slug }) }}">
+                <!-- <img src="/img/photo_ca.jpg" alt="avatar profile" class="avatar-profile"> -->
+                Mi perfil
+            </a>
+        {% else %}
+            <!-- <img src="/img/photo_ca.jpg" alt="avatar profile" class="avatar-profile"> -->
+            <a class="profile" href="{{ path('profile_search') }}">
+                Buscar
+            </a>
+        {% endif %}
+        <a class="no-responsive btn-close" href="{{ path('fos_user_security_logout') }}" title="Salir">Salir</a>
+    </div>
+</div>

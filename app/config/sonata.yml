@@ -1,0 +1,106 @@
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+    # registration:
+    #    form:
+    #        type: lumen_user_registration
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.user.block.menu: ~
+        sonata.user.block.account: ~
+        sonata.admin.block.search_result:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+            contexts: [admin]
+        lumen.sontaextends.extendsblock: ~
+
+sonata_user:
+    security_acl: true
+    manager_type: orm
+    admin:                  # Admin Classes
+        user:
+            controller: ApplicationSonataUserBundle:UserAdmin
+
+sonata_admin:
+    title:      "Ministerios Casa Grande"
+    # title_logo: bundles/lumenapp/img/dummy.png
+    templates:
+        layout:  SonataAdminBundle::layout.html.twig
+    dashboard:
+        blocks:
+            - { position: left,  type: sonata.admin.block.admin_list }
+       #     - { position: right, type: lumen.sontaextends.extendsblock }
+        groups:
+            User:
+                label: 'Usuarios'
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
+                roles: [ROLE_SUPER_ADMIN]
+            predicas:
+                label: 'Prédicas'
+                items:
+                  - js_app.admin.autor
+                  - js_app.admin.categoria_predica
+                  - js_app.admin.predica
+                  - js_app.admin.predica_devocional
+                  - js_app.admin.asidice
+
+            galeria:
+                label: 'Galerías'
+                items:
+                  - js_app.admin.galeria
+
+
+            contacto:
+                label: Contactenos
+                items:
+                  - js_app.admin.contacto
+
+
+
+
+
+##################################################################
+#                                                                #
+#              SONATA EXTENDS BUNDLE CONFIGURATION               #
+#                                                                #
+##################################################################
+
+js_sonata_extends:
+    config:
+        groups:
+            ~
+#            Reportes:
+#                label: Reportes
+#                items:
+#                    'Bitacora':
+#                        actions:
+#                            show_bitacora:
+#                                routingType: 'local' # Utiliza una ruta del sistema
+#                                routing: 'home_bitacora'
+#                                label: 'Ver bitacora'
+#                                roles: []
+#                    'Algo':
+#                        actions:
+#                            show_algo:
+#                                routingType: 'external' # Utiliza una url absoluta custom.
+#                                routing: 'http://www.google.com'
+#                                label: 'Algo'
+#                                target: '_blank'
+#                                roles: []
+
+# Las rutas deben de tener el prefix "/admin" ya que te recuerdo que estamos dentro del contexto
+# de Sonata y el firewall del security requiere el prefix "/admin" para identificar la
+# seguridad del usuario actual. Ejemplo:
+#
+# js_bitacora:
+#     resource: "@jsBitacoraBundle/Controller/"
+#     type:     annotation
+#     prefix:   /admin

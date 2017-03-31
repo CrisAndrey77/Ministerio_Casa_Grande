@@ -1,0 +1,51 @@
+services:
+#    JS.example:
+#        class: Lumen\AppBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    js_app.admin.autor:
+        class: JS\AppBundle\Admin\AutorAdmin
+        arguments: [~, JS\AppBundle\Entity\Autor, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Autor}
+
+    js_app.admin.categoria_predica:
+        class: JS\AppBundle\Admin\CategoriaPredicaAdmin
+        arguments: [~, JS\AppBundle\Entity\CategoriaPredica, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: "Categorias de predica"}
+
+    js_app.admin.predica:
+        class: JS\AppBundle\Admin\PredicaAdmin
+        arguments: [~, JS\AppBundle\Entity\Predica, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Predica}
+
+    js_app.admin.predica_devocional:
+        class: JS\AppBundle\Admin\PredicaDevocionalAdmin
+        arguments: [~, JS\AppBundle\Entity\PredicaDevocional, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Devocional del Mes'}
+
+    js_app.admin.galeria:
+        class: JS\AppBundle\Admin\GaleriaAdmin
+        arguments: [~, JS\AppBundle\Entity\Galeria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Galeria}
+
+    js_app.admin.galeria_item:
+        class: JS\AppBundle\Admin\GaleriaItemAdmin
+        arguments: [~, JS\AppBundle\Entity\GaleriaItem, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: GaleriaItem}
+
+    js_app.admin.contacto:
+        class: JS\AppBundle\Admin\ContactoAdmin
+        arguments: [~, JS\AppBundle\Entity\Contacto, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Contacto}
+
+    js_app.admin.asidice:
+        class: JS\AppBundle\Admin\AsidiceAdmin
+        arguments: [~, JS\AppBundle\Entity\Asidice, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Asidice}

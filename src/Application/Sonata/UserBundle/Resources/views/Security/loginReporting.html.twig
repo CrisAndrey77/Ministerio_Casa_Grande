@@ -1,0 +1,54 @@
+{% block fos_user_content %}
+
+
+    <div class="rdivMainContainerLogin">
+        <div class="rdivContainerLogin">
+            <div><img src="{{ asset('img/logoscinde.jpg') }}"> </div>
+            <div class="rdivHeaderLogin">
+                <h4>PLATAFORMA PARA EMPRESAS</h4>
+                <h4 class="titlesub">CINDE JOB FAIR</h4>
+            </div>
+            <div class="divContentFormLogin">
+                <form {{ (error)? 'class="form-error"':'' }} action="{{ path("fos_user_security_check") }}" method="POST">
+                    {% if error %}
+                        <span class="login-error">{{ error|trans({}, 'FOSUserBundle') }}</span>
+                    {% endif %}
+                    <input type="hidden" name="_target_path" value="/reporting/" />
+                    <input type="hidden" name="_failure_path" value="/reporting/login" />
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                    <fieldset>
+                        <div class="divInsideForm">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" class='txtInpuLogin validate bguserlogin fixinputpadding' id='txtUser' name="_username" value="{{ last_username }}" required="required"/>
+                                    <label for="txtUser" class="labelFixLeft">Usuario</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="password" class='txtInpuLogin bgpasslogin fixinputpadding' id='txtPassword' name="_password" required="required" />
+                                    <label for="txtPassword" class="labelFixLeft">Contraseña</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="display: none;" />
+
+                                <button type="submit" class="btnLogin waves-effect waves-light btn-large-porcent">INICIAR SESIÓN</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <footer class="footercustom">
+        <div class="container">
+            <a href="http://www.lumenup.com"><img src="{{ asset('img/logo_lumenup.png') }}" /></a>
+            <p>Proyectos que brindan en internet</p>
+        </div>
+
+    </footer>
+
+{% endblock fos_user_content %}

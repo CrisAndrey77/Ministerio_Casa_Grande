@@ -1,0 +1,47 @@
+{% extends base_template %}
+
+{% block actions %}
+    <div class="sonata-actions btn-group">
+        <a class="btn sonata-action-elements" href="{{ admin.generateUrl('list') }}">
+            <i class="icon-list"></i>
+            Return to list
+        </a>
+        {% include 'SonataAdminBundle:Core:create_button.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block form %}
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#s5345ad0c7b4db_1">
+                    <i class="icon-exclamation-sign has-errors hide"></i>
+                    Cargar Excel de Usuarios
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="s5345ad0c7b4db_1" class="tab-pane  active">
+                <fieldset>
+                    <div id="form_upload_container">
+                        {% include 'ApplicationSonataUserBundle:Admin:_import_users_form.html.twig' with { "form": form } %}
+                    </div>
+                    <div id="loader-container-users" class="control-group" style='display:none'>
+                        <div class="controls sonata-ba-field sonata-ba-field-standard-natural  ">
+                            <img src="/img/loader2.gif"/>
+{#                            <span id="txt_porcentaje_importacion_excel" style="font-weight: bold;">0%</span>#}
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="well well-small form-actions">
+                    <input id="btn_import_users_excel" type="button" value="Importar excel de usuarios" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include_javascript('../bundles/lumendate/js/src/import-users-from-excel.js') }}
+    {{ include_javascript('../bundles/lumendate/js/vendor/fileUpload/js/vendor/jquery.ui.widget.js') }}
+    {{ include_javascript('../bundles/lumendate/js/vendor/fileUpload/js/jquery.iframe-transport.js') }}
+    {{ include_javascript('../bundles/lumendate/js/vendor/fileUpload/js/jquery.fileupload.js') }}
+
+{% endblock %}

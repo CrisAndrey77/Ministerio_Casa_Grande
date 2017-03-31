@@ -1,0 +1,23 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+    sonata.user.admin.user.class: Application\Sonata\UserBundle\Admin\UserAdmin
+
+services:
+    # user_manager: lumen_user.registration.form.type
+    JS.twig.user_avatar:
+        class: Application\Sonata\UserBundle\Twig\Extension\UserAvatarExtension
+        arguments:    [@security.context, @twig]
+        tags : 
+            - { name: twig.extension }
+    JS_auth_success_handler:
+        class: Application\Sonata\UserBundle\Services\LoginSuccessHandler
+        arguments: [@security.context, @router]
+        tags:
+            - { name: monolog.logger, channel: security }
+    JS.twig.load_javascrip:
+        class: JS\ImportsBundle\Twig\Extension\LoadJavascriptExtension
+        arguments:    [@session]
+        tags : 
+            - { name: twig.extension }
+

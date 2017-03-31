@@ -1,0 +1,22 @@
+{% block fos_user_content %}
+<form {{ (error)? 'class="form-error"':'' }} action="{{ path("fos_user_security_check") }}" method="POST">
+    {% if error %}
+    <span class="login-error">{{ error|trans({}, 'FOSUserBundle') }}</span>
+    {% endif %}
+    <input type="hidden" name="_target_path" value="/" />
+    <input type="hidden" name="_failure_path" value="/" />
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <h3 class="titleWelcome">REGISTRO</h3>
+    <p class="ptextSubContent">Ingresa tu código Bayer y sé parte de nuestro programa especializado.</p>
+    <fieldset>
+        <input type="password" class='txtInpuLogin' id='txtUser' name="_password" required="required" placeholder="Código" />
+        <input type="text" class='txtInpuLogin' id='txtUser' name="_username" value="{{ last_username }}" required="required" placeholder="Email"/>
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="display: none;" />
+
+        <button type="submit" class="btnLogin" >INGRESAR</button>
+    </fieldset>
+    <a href="{{ path('registro_paciente') }}" class="btnRegister clearfix"><i>Crear una cuenta</i></a>
+    <p class="ptextSubContentMini">Si no tienes un código Bayer, consúltale a tu médico si ya es parte de este programa.</p>
+    
+</form>
+{% endblock fos_user_content %}

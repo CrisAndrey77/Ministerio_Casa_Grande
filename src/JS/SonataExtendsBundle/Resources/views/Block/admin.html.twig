@@ -1,0 +1,45 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <table class="table table-condensed sonata-ba-list">
+        {% for group in groups %}
+            <tr>
+                <td colspan="3" style="background: none repeat scroll 0 0 #F7F7F7;"><strong>{{ group.label|trans({}, group.label) }}</strong></td>
+            </tr>
+
+            {% for label, admin in group.items %}
+                {% set displayAdmin = true %}
+                {% if admin.roles is defined %}
+                    {% set displayAdmin = (admin.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+                        {% for role in admin.roles if not displayAdmin %}
+                            {% set displayAdmin = is_granted(role)%}
+                    {% endfor %}
+                {% endif %}
+                {% if displayAdmin %}
+                <tr>
+                    <td class="sonata-ba-list-label">
+                        {{ label|trans() }}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            {% for action in admin.actions %}
+                                {% set displayAct = (action.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+                                {% for role in action.roles if not displayAct %}
+                                    {% set displayAct = is_granted(role)%}
+                                {% endfor %}
+                                {% if displayAct %}
+                                    {% set routingType = action.routingType is defined  ? action.routingType : 'local'  %}
+                                <a class="btn btn-link" target="{{ action.target is defined  ? action.target : '_self' }}" href="{{ routingType == 'local' ? path(action.routing) : action.routing }}">
+                                    <i class="icon-list"></i>
+                                    {{ action.label|trans() }}
+                                </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

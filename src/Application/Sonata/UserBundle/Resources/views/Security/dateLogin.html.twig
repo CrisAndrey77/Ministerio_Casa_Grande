@@ -1,0 +1,54 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %} | Login{% endblock %}
+
+{% block fos_user_content %}
+
+{% if error %}
+    <div class="login-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+
+<div class="login-citas">
+    <div class="form-content">
+        <h1>{{ 'acceso_citas'|trans|raw }}</h1>
+        <form id="login_citas_form" action="{{ path('fos_user_security_check') }}" method="post">
+            <input type="hidden" name="_target_path" value="{{ path('dates') }}" />
+            <input type="hidden" name="_target_route" value="dates" />
+            <input type="hidden" name="_failure_path" value="{{ path('date_login') }}" />
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+<!--            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>-->
+            <fieldset class="input-mask">
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'forms.login.username'|trans|raw }}" />
+            </fieldset>
+
+<!--            <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>-->
+            <fieldset class="input-mask">
+                <input type="password" id="password" name="_password" required="required" placeholder="{{ 'forms.login.password'|trans|raw }}" />
+            </fieldset>
+
+        <!--
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+        -->
+        </form>
+        
+        <fieldset class="input-checkbox">
+            <label class="evt_forcheckbox" for="terminos">
+                <span class="checkbox-icon"></span>
+                <input type="checkbox" id="terminos" name="_terminos" />
+                {{ 'forms.login.terms'|trans|raw }}
+            </label>
+        </fieldset>
+        
+        <input type="submit" id="_submit" name="_submit" value="{{ 'forms.login.submit'|trans|raw }}" />
+    </div>
+<!--
+    <p class="forgot">
+        <a>{{ 'forms.login.forgot_password'|trans|raw }}</a>
+    </p>
+-->
+</div>
+{{ include_javascript('../bundles/lumendate/js/src/user-login.js') }}
+
+{% endblock fos_user_content %}

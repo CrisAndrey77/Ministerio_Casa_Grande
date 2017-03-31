@@ -1,0 +1,4 @@
+services:
+#    fos_auth.example:
+#        class: Lumen\FosAuthBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

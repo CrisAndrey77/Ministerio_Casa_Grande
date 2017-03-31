@@ -1,0 +1,111 @@
+# knp_paginator:
+#     page_range: 5                      # default page range used in pagination control
+#     default_options:
+#         page_name: page                # page query parameter name
+#         sort_field_name: sort          # sort field query parameter name
+#         sort_direction_name: direction # sort direction query parameter name
+#         distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+#     template:
+#         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+#         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+fm_elfinder:
+  instances:
+    default:
+      connector:
+        debug: false
+        roots:
+          uploads:
+            driver: LocalFileSystem
+            path: uploads
+            show_hidden: false
+            upload_allow:
+              - image/png
+              - image/jpg
+              - image/jpeg
+            upload_deny:
+              - all
+            upload_max_size: 2M
+      editor: ckeditor
+      fullscreen: true
+      include_assets: true
+      locale: es
+      theme: smoothness
+
+ivory_ck_editor:
+  configs:
+    default:
+      filebrowserBrowseRoute: elfinder
+      filebrowserBrowseRouteParameters: []
+  default_config: default
+# deploy:
+#   prod:
+#     rsync-options: '-azC --force --delete --progress -h --checksum'
+#     host: my.destination.env
+#     dir: /path/to/project/root
+#     user: root
+#     port: 22
+#     timeout: 120 # Connection timeout in seconds. 0 for no timeout.
+#   uat:
+#     host: 192.168.1.10
+#     user: root2
+#     dir: /path/to/project/root
+#     port: 22022
+#     post_deploy_operations: 
+#         - app/console cache:clear --env=prod
+#         - app/console assets:install --env=prod
+#         - app/console assetic:dump --env=prod    
+
+# prezent_doctrine_translatable:
+#     fallback_locale: "%locale%"
+
+# liip_imagine:
+#     resolvers:
+#        default:
+#           web_path: ~
+
+#     filter_sets:
+#         cache: ~ // ruta donde desea guardar el thumb
+#         my_thumb:
+#             quality: 75
+#             filters:
+#                 thumbnail: { size: [120, 90], mode: outbound }
+
+
+
+fos_oauth_server:
+    db_driver: orm       # Driver availables: orm, mongodb, or propel
+    client_class:        JS\FosAuthBundle\Entity\Client
+    access_token_class:  JS\FosAuthBundle\Entity\AccessToken
+    refresh_token_class: JS\FosAuthBundle\Entity\RefreshToken
+    auth_code_class:     JS\FosAuthBundle\Entity\AuthCode
+#    service:
+#        fos_userbundle: fos_user.user_manager
+#        options:
+#            supported_scopes: user
+
+
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: True
+    service:
+        serializer:     jms_serializer.serializer
+    serializer:
+        serialize_null: true
+
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "Y-m-d H:i:s" 
+    metadata:
+        auto_detection: true
+        
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }

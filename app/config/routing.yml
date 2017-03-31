@@ -1,0 +1,57 @@
+fos_auth:
+    resource: "@FosAuthBundle/Controller/SecurityController.php"
+    prefix:   /auth
+    type:     annotation
+
+JS_app_rest:
+    resource: "JS\AppBundle\Controller\RestController"
+    type: rest
+    prefix: /
+    
+JS_app:
+    resource: '@JSAppBundle/Controller/'
+    type:     annotation
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+sonata_user:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /admin
+
+fos_user_security:
+    resource: '@FOSUserBundle/Resources/config/routing/security.xml'
+
+fos_user_profile:
+    resource: '@FOSUserBundle/Resources/config/routing/profile.xml'
+    prefix: /fosprofile
+
+fos_user_register:
+    resource: '@FOSUserBundle/Resources/config/routing/registration.xml'
+    prefix: /register
+
+fos_user_resetting:
+    resource: '@FOSUserBundle/Resources/config/routing/resetting.xml'
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: '@FOSUserBundle/Resources/config/routing/change_password.xml'
+    prefix: /profile
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+# _liip_imagine:
+#     resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"

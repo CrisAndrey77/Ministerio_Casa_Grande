@@ -1,0 +1,23 @@
+<form id="fileupload_users" action="{{ admin.generateUrl('execute_user_import_excel') }}" method="POST" enctype="multipart/form-data">
+    <div id="form_load_excel_buyers_container" class="sonata-ba-collapsed-fields">
+        <div id="sonata-ba-field-container-s5345ad0c7b4db_codigo" class="control-group">
+            <label for="cantidad" class="control-label required">
+                Tipo de importación
+            </label>
+            <div class="controls sonata-ba-field sonata-ba-field-standard-natural  ">
+                {{ form_widget(form.user_type) }}
+                <span>{{ form_errors(form.user_type) }}</span>
+            </div>
+            <label for="cantidad" class="control-label required">
+                Archivo excel
+                *
+            </label>
+            <div class="controls sonata-ba-field sonata-ba-field-standard-natural  ">
+                {{ form_widget(form.file) }}
+                <span>{{ form_errors(form) }}</span>
+                <span>Por favor seleccione el archivo de excel con el formato indicado para el registro de usuarios</span>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+    </div>
+</form>

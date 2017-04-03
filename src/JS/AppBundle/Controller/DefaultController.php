@@ -28,6 +28,16 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/devocionales", name="devocionales")
+     */
+    public function devocionalesAction()
+    {
+
+        return $this->render('JSAppBundle:Default:devocionales.html.twig', []);
+    }
+
+
+    /**
      * @Route("/galerias", name="galerias")
      */
     public function galeriasAction()

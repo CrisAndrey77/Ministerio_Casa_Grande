@@ -54,7 +54,8 @@ class PredicaAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
-            ->add('descripcion', 'ckeditor')
+            ->add('descripcionBreve')
+            ->add('descripcion', 'ckeditor', ['label' => 'Mensaje'])
             ->add('fecha', 'sonata_type_date_picker', array(
                 'format'                => 'dd/MM/yyyy',
                 'dp_use_current'        => false,

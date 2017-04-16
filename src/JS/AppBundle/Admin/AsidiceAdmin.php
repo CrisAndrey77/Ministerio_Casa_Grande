@@ -28,9 +28,8 @@ class AsidiceAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nombre')
-            ->add('descripcion')
+            ->add('descripcion',null,['template'=>'JSAppBundle:Admin:textpredica.html.twig'])
             ->add('fecha')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -49,8 +48,14 @@ class AsidiceAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
-            ->add('descripcion')
-            ->add('fecha')
+            ->add('descripcionBreve')
+            ->add('descripcion', 'ckeditor', ['label' => 'Mensaje'])
+            ->add('fecha', 'sonata_type_date_picker', array(
+                'format'                => 'dd/MM/yyyy',
+                'dp_use_current'        => false,
+            ))
+            ->add('autor')
+
         ;
     }
 

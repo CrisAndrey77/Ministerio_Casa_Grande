@@ -29,6 +29,14 @@ class Predica
      */
     private $nombre;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcionBreve", type="text")
+     */
+    private $descripcionBreve;
+
     /**
      * @var string
      *
@@ -279,5 +287,28 @@ class Predica
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set descripcionBreve
+     *
+     * @param string $descripcionBreve
+     * @return Predica
+     */
+    public function setDescripcionBreve($descripcionBreve)
+    {
+        $this->descripcionBreve = $descripcionBreve;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcionBreve
+     *
+     * @return string 
+     */
+    public function getDescripcionBreve()
+    {
+        return $this->descripcionBreve;
     }
 }

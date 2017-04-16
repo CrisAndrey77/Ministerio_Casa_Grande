@@ -8,7 +8,7 @@
                     <div class="txt-block">
 
 
-                        <h1 class="head-line">TEMA {{ predica.nombre }}:</h1>
+                        <h1 class="head-line">{{ predica.nombre }}</h1>
                         <h2>{{ predica.fecha | date('d-m-Y') }} </h2>
 
                     </div>
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="tag-home">
-                    { predica.descripcion | raw } BREve
+                        {{ predica.descripcionBreve | raw }}
                 </h1>
                 <hr />
             </div>

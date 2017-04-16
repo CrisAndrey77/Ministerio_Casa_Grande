@@ -32,11 +32,21 @@ class CategoriaPredica
      */
     private $nombre;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcionBreve", type="text")
+     */
+    private $descripcionBreve;
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="descripcion", type="text")
      */
+
     private $descripcion;
 
     /**
@@ -276,5 +286,28 @@ class CategoriaPredica
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set descripcionBreve
+     *
+     * @param string $descripcionBreve
+     * @return CategoriaPredica
+     */
+    public function setDescripcionBreve($descripcionBreve)
+    {
+        $this->descripcionBreve = $descripcionBreve;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcionBreve
+     *
+     * @return string 
+     */
+    public function getDescripcionBreve()
+    {
+        return $this->descripcionBreve;
     }
 }

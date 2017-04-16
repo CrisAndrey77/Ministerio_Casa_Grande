@@ -33,6 +33,14 @@ class Asidice
     /**
      * @var string
      *
+     * @ORM\Column(name="descripcionBreve", type="text")
+     */
+    private $descripcionBreve;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
@@ -214,5 +222,28 @@ class Asidice
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set descripcionBreve
+     *
+     * @param string $descripcionBreve
+     * @return Asidice
+     */
+    public function setDescripcionBreve($descripcionBreve)
+    {
+        $this->descripcionBreve = $descripcionBreve;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcionBreve
+     *
+     * @return string 
+     */
+    public function getDescripcionBreve()
+    {
+        return $this->descripcionBreve;
     }
 }

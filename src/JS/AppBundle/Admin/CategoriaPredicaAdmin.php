@@ -67,6 +67,7 @@ class CategoriaPredicaAdmin extends Admin
         $formMapper
 
             ->add('nombre')
+            ->add('descripcionBreve')
             ->add('descripcion', 'ckeditor')
             ->add('file', 'file', $fileFileFieldOptionsImage)
 

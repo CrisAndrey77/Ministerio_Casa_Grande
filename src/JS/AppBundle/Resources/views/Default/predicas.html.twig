@@ -32,42 +32,24 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
+                {% for categoria in categorias %}
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <a href="{{ path('predica_categoria', {'categoria': categoria.slug }) }}">
+                            <div class="just-txt-div">
 
-                        <img src="assets/img/t1.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
+                                <img src="{{ categoria.getImagePath() }}" alt="" class="img-circle set-about-img"  />
+                                <h2><strong>{{ categoria.nombre }} </strong>  </h2>
+                                <p >
+                                    {{ categoria.descripcion|raw }}
+                                </p>
 
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
+                {% endfor %}
 
-                        <img src="assets/img/t2.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
 
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
-
-                        <img src="assets/img/t3.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
-
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-46 col-xs-12">

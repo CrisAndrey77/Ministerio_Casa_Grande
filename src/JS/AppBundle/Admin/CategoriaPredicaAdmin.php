@@ -2,6 +2,7 @@
 
 namespace JS\AppBundle\Admin;
 
+use JS\AppBundle\Entity\CategoriaPredica;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -47,9 +48,27 @@ class CategoriaPredicaAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $object = $this->getSubject();
+        $fileFileFieldOptionsImage             = [];
+        $fileFileFieldOptionsImage['required'] = false;
+        $fileFileFieldOptionsImage['label']    = 'Foto';
+        if (!$object){
+            $fileFileFieldOptionsImage['required'] = true;
+        }
+
+        if ($object && ($object->getImage())
+        ) {
+            $fullPath = $object->getImagePath();
+            if ($object->getWebPath() != '') {
+                $fileFileFieldOptionsImage['help'] = '<img src="' . $fullPath . '" alt="imagen" width="150" /a>';
+            }
+        }
+
         $formMapper
 
             ->add('nombre')
+            ->add('descripcion', 'ckeditor')
+            ->add('file', 'file', $fileFileFieldOptionsImage)
 
         ;
     }
@@ -65,4 +84,30 @@ class CategoriaPredicaAdmin extends Admin
 
         ;
     }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function preUpdate($object)
+    {
+        $this->updateSlug($object);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateSlug(CategoriaPredica $object)
+    {
+        $object->setSlug($this->urlize($object->getNombre()));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prePersist($object)
+    {
+        $this->updateSlug($object);
+    }
 }
+

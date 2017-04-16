@@ -4,15 +4,18 @@ namespace JS\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JS\AppBundle\Traits\UploadImage;
 
 /**
  * CategoriaPredica
  *
  * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="JS\AppBundle\Entity\CategoriaPredicaRepository")
  */
 class CategoriaPredica
 {
+    use UploadImage;
     /**
      * @var integer
      *
@@ -28,6 +31,20 @@ class CategoriaPredica
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text")
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string")
+     */
+    private $slug;
 
     /**
      * @var datetime $created
@@ -213,5 +230,51 @@ class CategoriaPredica
     public function __toString()
     {
         return $this->getId() ? $this->getNombre() : "Nuevo";
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return CategoriaPredica
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return CategoriaPredica
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

@@ -5,9 +5,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-namespace Lumen\ImportsBundle\Controller;
+namespace JS\ImportsBundle\Controller;
 
 use Application\Sonata\UserBundle\Entity\User;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -54,5 +55,9 @@ class JSController extends Controller
         $serializer = new \Symfony\Component\Serializer\Serializer(array($normalizer), array($encoder));
 
         return $serializer->serialize($object, 'json');
+    }
+    /* @return EntityManager **/
+    protected function getEntityManager(){
+        return $this->getDoctrine()->getManager();
     }
 }

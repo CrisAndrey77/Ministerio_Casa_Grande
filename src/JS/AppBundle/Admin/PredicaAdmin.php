@@ -2,6 +2,7 @@
 
 namespace JS\AppBundle\Admin;
 
+use JS\AppBundle\Entity\Predica;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -74,5 +75,29 @@ class PredicaAdmin extends Admin
             ->add('descripcion')
             ->add('fecha')
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function preUpdate($object)
+    {
+        $this->updateSlug($object);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateSlug(Predica $object)
+    {
+        $object->setSlug($this->urlize($object->getNombre() . '_' . $object->getCategoriaPredica()?$object->getCategoriaPredica()->getNombre():''));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prePersist($object)
+    {
+        $this->updateSlug($object);
     }
 }

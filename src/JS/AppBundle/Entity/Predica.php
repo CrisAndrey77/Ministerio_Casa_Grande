@@ -37,6 +37,14 @@ class Predica
     private $descripcion;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string")
+     */
+    private $slug;
+
+
+    /**
      *
      * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\CategoriaPredica", inversedBy="predicas")
      * @ORM\JoinColumn(name="categoriapredica_id", referencedColumnName="id", nullable=true)
@@ -248,5 +256,28 @@ class Predica
     public function __construct()
     {
         $this->fecha  = new \DateTime('NOW');
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Predica
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

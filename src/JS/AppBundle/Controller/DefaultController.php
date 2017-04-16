@@ -2,13 +2,10 @@
 
 namespace JS\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JS\ImportsBundle\Controller\JSController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
 
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
-class DefaultController extends Controller
+class DefaultController extends JSController
 {
     /**
      * @Route("/" , name="index")
@@ -23,9 +20,29 @@ class DefaultController extends Controller
      */
     public function predicasAction()
     {
-
-        return $this->render('JSAppBundle:Default:predicas.html.twig', []);
+        $predicas = $this->getEntityManager()->getRepository('JSAppBundle:CategoriaPredica')->findBy([], ['nombre' => 'DESC']);
+        return $this->render('JSAppBundle:Default:predicas.html.twig', ['categorias' => $predicas]);
     }
+
+    /**
+     * @Route("/predicas/{categoria}", name="predica_categoria")
+     */
+    public function predicaCategoriaAction($categoria)
+    {
+        $categoria = $this->getEntityManager()->getRepository('JSAppBundle:CategoriaPredica')->findOneBy(['slug' => $categoria]);
+        return $this->render('JSAppBundle:Default:predicaCategoria.html.twig', ['categoria' => $categoria]);
+    }
+
+
+    /**
+     * @Route("/predicas/{categoria}/{detalle}", name="predica_detalle")
+     */
+    public function predicaDetalleAction($categoria, $detalle)
+    {
+        $predica = $this->getEntityManager()->getRepository('JSAppBundle:Predica')->findOneBy(['slug' => $detalle]);
+        return $this->render('JSAppBundle:Default:predicaDetalle.html.twig', ['predica' => $predica]);
+    }
+
 
     /**
      * @Route("/devocionales", name="devocionales")

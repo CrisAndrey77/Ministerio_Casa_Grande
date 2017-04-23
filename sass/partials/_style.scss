@@ -29,3 +29,33 @@
 .just-txt-div{
   text-align: center;
 }
+
+
+.footer-sec {
+  background: $azulcasa;
+}
+
+.predicaBlock {
+  display: block;
+  box-shadow: 5px 5px 25px $azulcasa;
+  padding: 10px;
+  color: #000;
+  min-height: 300px;
+  &:hover{
+    color:#000;
+  }
+  h3{
+    font-size: 16px;
+    font-family: "Open Sans Condensed";
+    text-align: left;
+    padding: 0 18px;
+  }
+  p{
+    text-align: justify;
+    padding: 0 18px;
+  }
+}
+.predicaBlock{
+  box-shadow: 5px 5px 25px $azulcasa;
+  padding: 20px;
+}

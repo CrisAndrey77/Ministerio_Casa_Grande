@@ -49,8 +49,9 @@ class DefaultController extends JSController
      */
     public function devocionalesAction()
     {
+        $devocionales = $this->getEntityManager()->getRepository('JSAppBundle:PredicaDevocional')->getDevocionales();
 
-        return $this->render('JSAppBundle:Default:devocionales.html.twig', []);
+        return $this->render('JSAppBundle:Default:devocionales.html.twig', ['devocionales' => $devocionales]);
     }
 
 

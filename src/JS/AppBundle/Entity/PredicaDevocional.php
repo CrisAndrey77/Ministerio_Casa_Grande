@@ -52,6 +52,13 @@ class PredicaDevocional
     private $fechaFinal;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="semana", type="integer")
+     */
+    private $semana;
+
+    /**
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
@@ -68,19 +75,6 @@ class PredicaDevocional
     protected $updatedAt;
 
 
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\CategoriaPredica", inversedBy="devocionales")
-     * @ORM\JoinColumn(name="categoriapredica_id", referencedColumnName="id", nullable=true)
-     */
-    protected $categoriaPredica;
-
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\Autor", inversedBy="devocionales")
-     * @ORM\JoinColumn(name="autor_id", referencedColumnName="id", nullable=true)
-     */
-    protected $autor;
 
     /**
      * Get id
@@ -325,5 +319,28 @@ class PredicaDevocional
     public function getAutor()
     {
         return $this->autor;
+    }
+
+    /**
+     * Set semana
+     *
+     * @param string $semana
+     * @return PredicaDevocional
+     */
+    public function setSemana($semana)
+    {
+        $this->semana = $semana;
+
+        return $this;
+    }
+
+    /**
+     * Get semana
+     *
+     * @return string 
+     */
+    public function getSemana()
+    {
+        return $this->semana;
     }
 }

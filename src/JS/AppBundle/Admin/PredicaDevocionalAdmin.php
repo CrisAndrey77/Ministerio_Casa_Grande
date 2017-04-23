@@ -2,6 +2,7 @@
 
 namespace JS\AppBundle\Admin;
 
+use JS\AppBundle\Entity\PredicaDevocionalRepository;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -10,6 +11,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PredicaDevocionalAdmin extends Admin
 {
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -63,8 +66,10 @@ class PredicaDevocionalAdmin extends Admin
                 'format'                => 'dd/MM/yyyy',
                 'dp_use_current'        => false,
             ))
-            ->add('categoriaPredica')
-            ->add('autor')
+            ->add('semana', 'choice', [
+                'choices' => PredicaDevocionalRepository::$semanas
+            ])
+
         ;
     }
 

@@ -12,4 +12,55 @@ use Doctrine\ORM\EntityRepository;
  */
 class PredicaDevocionalRepository extends EntityRepository
 {
+    public static $semanas = [
+        1 => 'Semana 1',
+        2 => 'Semana 2',
+        3 => 'Semana 3',
+        4 => 'Semana 4'
+    ];
+
+    public static $meses = [
+        '01' => 'Enero',
+        '02' => 'Febrero',
+        '03' => 'Marzo',
+        '04' => 'Abril',
+        '05' => 'Mayo',
+        '06' => 'Junio',
+        '07' => 'Julio',
+        '08' => 'Agosto',
+        '09' => 'Setiembre',
+        '10' => 'Octubre',
+        '11' => 'Noviembre',
+        '12' => 'Diciembre',
+    ];
+
+    public function getDevocionales()
+    {
+        $devocionales= $this->createQueryBuilder('D')
+            ->orderBy('D.fechaInicio', 'DESC')
+            ->getQuery()->getResult();
+
+        $devocionalesByMonth = [];
+
+        /**
+         * @var $devocional PredicaDevocional
+         */
+        foreach ($devocionales as $devocional){
+            foreach (array_reverse(self::$meses) as $mes){
+                $devocionalesByMonth[$devocional->getFechaInicio()->format('Y')][$mes] = [];
+            }
+            $devocionalesByMonth[$devocional->getFechaInicio()->format('Y')]
+            [self::$meses[$devocional->getFechaInicio()->format('m')]]  = [
+                self::$semanas[1] => [],
+                self::$semanas[2] => [],
+                self::$semanas[3] => [],
+                self::$semanas[4] => [],
+            ];
+            $devocionalesByMonth[$devocional->getFechaInicio()->format('Y')]
+            [self::$meses[$devocional->getFechaInicio()->format('m')]]
+            [self::$semanas[$devocional->getSemana()]][] = $devocional;
+        }
+
+        return $devocionalesByMonth;
+    }
 }

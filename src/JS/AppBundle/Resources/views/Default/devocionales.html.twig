@@ -20,8 +20,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="tag-home">  Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Mauris sagittis felis dolor vitae. Mauris sagittis felis dolor vitae Mauris sagittis felis dolor vitae.</h1>
-                <hr />
+                <h1 class="tag-home"> Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Mauris
+                    sagittis felis dolor vitae. Mauris sagittis felis dolor vitae Mauris sagittis felis dolor vitae.
+                </h1>
+                <hr/>
             </div>
         </div>
     </div>
@@ -30,72 +32,91 @@
 
 
         <div class="container">
+            {% for keyAno, ano in devocionales %}
+                <h3>{{ keyAno }}</h3>
 
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
+                    <div class="bs-example bs-example-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
 
-                        <img src="assets/img/t1.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
+                            {% for keyMes, mes in ano|reverse %}
+                                {% if loop.first %}
+                                    <li role="presentation" class="active">
+                                        <a href="#{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}" role="tab" data-toggle="tab" aria-controls="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-expanded="true">
+                                            {{ keyMes }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li role="presentation" class="">
+                                        <a href="#{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" role="tab" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}" data-toggle="tab" aria-controls="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-expanded="false">
+                                            {{ keyMes }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
 
+
+                        </ul>
+                        <div class="tab-content">
+
+                            {% for keyMes, mes in ano|reverse %}
+                                {% if loop.first %}
+                                    <div class="tab-pane fade active in" role="tabpanel" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-labelledby="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}">
+                                        <ul>
+                                            {% for keySemana, devocionalArray in (mes) %}
+                                                <li>
+                                                    <div>
+                                                        <h5>{{ keySemana }}</h5>
+                                                        {% for devocional in devocionalArray %}
+                                                            <p>Devocional: {{ devocional.nombre }}</p>
+                                                        {% else %}
+                                                            <h3>Próximamente nuevos devocionales de esta semana.</h3>
+                                                        {% endfor %}
+
+                                                    </div>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <div>
+                                                        <h3>Próximamente nuevos devocionales de este mes.</h3>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% else %}
+                                    <div class="tab-pane fade" role="tabpanel" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-labelledby="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}">
+                                        <ul>
+                                            {% for keySemana, devocionalArray in (mes) %}
+                                                <li>
+                                                    <div>
+                                                        <p>{{ keySemana }}</p>
+                                                        {% for devocional in devocionalArray %}
+                                                            <h5>Devocional: {{ devocional.nombre }}</h5>
+                                                        {% else %}
+                                                            <h3>Próximamente nuevos devocionales de esta semana.</h3>
+                                                        {% endfor %}
+                                                    </div>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <div>
+                                                        <h3>Próximamente nuevos devocionales de este mes.</h3>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+
+
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
 
-                        <img src="assets/img/t2.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
 
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="just-txt-div">
 
-                        <img src="assets/img/t3.jpg" alt="" class="img-circle set-about-img"  />
-                        <h2><strong>Here Dummy Name </strong>  </h2>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-46 col-xs-12">
-                    <div class="just-txt-div">
-
-                        <p >
-                            Lorem ipsum dolor sit amet, <strong> consectetur adipiscing elit.</strong> Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur <strong> consectetur adipiscing elit.</strong>  felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
-                        <p >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur <strong> consectetur adipiscing elit.</strong>  felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                        </p>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-46 col-xs-12">
-                    <div class="just-txt-div">
-                        <img src="assets/img/side.jpg" class="img-responsive" />
-
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <!--JUST SECTION END-->

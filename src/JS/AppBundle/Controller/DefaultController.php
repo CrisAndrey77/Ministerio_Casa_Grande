@@ -79,7 +79,8 @@ class DefaultController extends JSController
      */
     public function asidiceDetalle($asidice)
     {
-
+        $predica = $this->getEntityManager()->getRepository('JSAppBundle:Asidice')->findOneBy(['slug' => $asidice]);
+        return $this->render('JSAppBundle:Default:predicaDetalle.html.twig', ['predica' => $predica]);
     }
 
     /**

@@ -12,25 +12,25 @@ services:
         class: JS\AppBundle\Admin\CategoriaPredicaAdmin
         arguments: [~, JS\AppBundle\Entity\CategoriaPredica, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: "Categorias de predica"}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: "Categorías de Prédicas"}
 
     js_app.admin.predica:
         class: JS\AppBundle\Admin\PredicaAdmin
         arguments: [~, JS\AppBundle\Entity\Predica, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Predica}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Prédica'}
 
     js_app.admin.predica_devocional:
         class: JS\AppBundle\Admin\PredicaDevocionalAdmin
         arguments: [~, JS\AppBundle\Entity\PredicaDevocional, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Devocional del Mes'}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Devocionales del Mes'}
 
     js_app.admin.galeria:
         class: JS\AppBundle\Admin\GaleriaAdmin
         arguments: [~, JS\AppBundle\Entity\Galeria, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Galeria}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Galería'}
 
     js_app.admin.galeria_item:
         class: JS\AppBundle\Admin\GaleriaItemAdmin
@@ -48,4 +48,4 @@ services:
         class: JS\AppBundle\Admin\AsidiceAdmin
         arguments: [~, JS\AppBundle\Entity\Asidice, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Asidice}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: 'Así dice su Palabra'}

@@ -19,7 +19,6 @@ class PredicaAdmin extends Admin
         $datagridMapper
 
             ->add('nombre')
-            ->add('descripcion')
             ->add('fecha')
 
         ;

@@ -23,8 +23,6 @@ class PredicaDevocionalAdmin extends Admin
             ->add('descripcion')
             ->add('fechaInicio')
             ->add('fechaFinal')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 
@@ -35,12 +33,12 @@ class PredicaDevocionalAdmin extends Admin
     {
         $listMapper
             ->add('nombre')
-            ->add('descripcion')
+            ->add('descripcion',null, ['label'=> 'Descripción'])
             ->add('fechaInicio')
             ->add('fechaFinal')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('_action', 'actions', array(
+            ->add('createdAt',null,['label'=> 'Creado'])
+            ->add('updatedAt', null, ['label'=> 'Última actualización'])
+            ->add('_action', 'Acciones', array(
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),

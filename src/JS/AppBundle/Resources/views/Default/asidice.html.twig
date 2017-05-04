@@ -37,8 +37,10 @@
                 {% for predica in predicas %}
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="just-txt-div">
-                            <h2><strong>{{ predica.nombre }} </strong>  </h2>
-                            {{ predica.descripcionBreve | raw }}
+                            <a href="{{ path('asidice_Detalle') }}">
+                                <h2><strong>{{ predica.nombre }} </strong>  </h2>
+                                {{ predica.descripcionBreve | raw }}
+                            </a>
 
                         </div>
                     </div>
@@ -46,6 +48,12 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
     <!--JUST SECTION END-->
     <!-- PARALLAX LIKE SECTION END-->
     <!--CLIENT SECTION END-->

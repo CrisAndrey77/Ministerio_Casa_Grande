@@ -75,6 +75,14 @@ class DefaultController extends JSController
     }
 
     /**
+     * @Route("/asidice/{asidice}", name="asidice_Detalle")
+     */
+    public function asidiceDetalle($asidice)
+    {
+
+    }
+
+    /**
      * @Route("/contactenos", name="contactenos")
      */
     public function contactenosAction()

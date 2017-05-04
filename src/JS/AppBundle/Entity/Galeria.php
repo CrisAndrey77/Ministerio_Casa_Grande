@@ -224,4 +224,9 @@ class Galeria
     {
         return $this->items;
     }
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }

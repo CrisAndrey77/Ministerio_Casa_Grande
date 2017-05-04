@@ -17,7 +17,6 @@ class AsidiceAdmin extends Admin
     {
         $datagridMapper
             ->add('nombre')
-            ->add('descripcion')
             ->add('fecha')
         ;
     }

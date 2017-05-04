@@ -46,13 +46,13 @@ class GaleriaAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
-            ->add('posicion')
+            ->add('posicion',null,['label'=> 'Iglesia'])
             ->add('items', 'sonata_type_collection', [
                 'type_options' => [
 
                 ],
                 'by_reference' => false,
-                'label'        => 'Items',
+                'label'        => 'Archivo',
                 //                'btn_add'      => false
             ], [
                     'edit'     => 'inline',

@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
- * Asidice
+ * Asi díce su Palabra
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="JS\AppBundle\Entity\AsidiceRepository")

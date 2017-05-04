@@ -35,16 +35,16 @@
 <section class="menu-section">
     <div class="container">
         <div class="row ">
-            <div class="col-md-2">
+            <div class="col-md-2 col-xs-12">
                 <a class="navbar-brand" href="{{ path('index') }}">
 
                     <img src="{{ asset('img/structure/logo-small.jpg') }}"/>
                 </a>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 col-xs-12">
                 <div class="navbar-collapse collapse ">
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('index') }}">INICIO</a></li>  {#class="menu-top-active"#}
+                        <li><a href="{{ path('index') }}">INICIO</a></li> {#class="menu-top-active"#}
 
                         <li><a href="{{ path('predicas') }}">PRÉDICAS</a></li>
                         <li><a href="{{ path('devocionales') }}">DEVOCIONALES</a></li>
@@ -99,19 +99,15 @@
     </div>
 </div>
 
-<!--FOOTER SECTION END-->
-<!-- WE PUT SCRIPTS AT THE END TO LOAD PAGE FASTER-->
-<!--CORE SCRIPTS PLUGIN-->
-<script src="/js/jquery-1.11.1.min.js"></script>
-<!--BOOTSTRAP SCRIPTS PLUGIN-->
-<script src="/js/bootstrap.js"></script>
-<!--WOW SCRIPTS PLUGIN-->
-<script src="/js/wow.js"></script>
-<!--FLEXSLIDER SCRIPTS PLUGIN-->
-<script src="/js/jquery.flexslider.js"></script>
-<!--CUSTOM SCRIPTS -->
-<script src="/js/custom.js"></script>
 
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/wow.js') }}"></script>
+<script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+<script src="{{ asset('bower_components/lightgallery/dist/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset('bower_components/lightgallery/demo/js/lg-fullscreen.min.js') }}"></script>
+<script src="{{ asset('bower_components/lightgallery/demo/js/lg-video.min.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
 <script src="https://use.fontawesome.com/fabd73287c.js"></script>
 
 </body>

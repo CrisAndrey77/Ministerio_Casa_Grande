@@ -5,6 +5,7 @@ namespace JS\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JS\AppBundle\Traits\UploadImage;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CategoriaPredica
@@ -35,7 +36,7 @@ class CategoriaPredica
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="descripcionBreve", type="text")
      */
     private $descripcionBreve;
@@ -43,7 +44,7 @@ class CategoriaPredica
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="descripcion", type="text")
      */
 

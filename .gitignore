@@ -9,6 +9,7 @@
 /vendor/
 /web/bundles/
 /web/upload/
+/web/uploads/*
 /web/content/
 /web/assets/
 /web/assets

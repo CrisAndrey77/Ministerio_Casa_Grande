@@ -4,6 +4,7 @@ namespace JS\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PredicaDevocional
@@ -31,7 +32,7 @@ class PredicaDevocional
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="descripcion", type="string", length=255)
      */
     private $descripcion;
@@ -342,5 +343,10 @@ class PredicaDevocional
     public function getSemana()
     {
         return $this->semana;
+    }
+
+    public function __toString()
+    {
+        return $this->getId() ? $this->getNombre() : "Nuevo";
     }
 }

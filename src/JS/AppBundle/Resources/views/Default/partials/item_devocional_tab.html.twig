@@ -1,0 +1,7 @@
+<li role="presentation" class="tab {% if active %}active{% endif %}">
+    <a href="#{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" role="tab"
+       id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}" data-toggle="tab"
+       aria-controls="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-expanded="{{ active ? 'true' : 'false' }}">
+        {{ keyMes }}
+    </a>
+</li>

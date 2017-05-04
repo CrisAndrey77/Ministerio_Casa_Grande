@@ -60,7 +60,8 @@ class DefaultController extends JSController
      */
     public function galeriasAction()
     {
-        return $this->render('JSAppBundle:Default:galerias.html.twig', []);
+        $galerias = $this->getEntityManager()->getRepository('JSAppBundle:Galeria')->getGalerias();
+        return $this->render('JSAppBundle:Default:galerias.html.twig', ['galerias' => $galerias]);
     }
 
     /**

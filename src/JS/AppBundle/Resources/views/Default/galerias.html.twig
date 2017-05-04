@@ -6,10 +6,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="txt-block">
-
-
                         <h1 class="head-line">HATILLO Y OROTINA, UNIDOS EN DIOS</h1>
-
                     </div>
                 </div>
             </div>
@@ -22,197 +19,22 @@
 
 
         <div class="container">
-
-            <div class="row " >
-                <ul id="filters" >
-                    <li><span class="filter active" data-filter="landscape nature awesome">All </span></li>
-                    <li><span class="filter active">/</span></li>
-                    <li><span class="filter" data-filter="landscape">Landscape</span></li>
-                    <li><span class="filter">/</span></li>
-                    <li><span class="filter" data-filter="nature">Nature</span></li>
-                    <li><span class="filter">/</span></li>
-                    <li><span class="filter" data-filter="awesome">Awesome</span></li>
+            {% for galery in galerias %}
+                <h3>{{ galery.nombre }}</h3>
+                <ul class="row lightgallery">
+                    {% for item in galery.items %}
+                        {% if item.video != '' %}
+                            {% set url = item.video %}
+                        {% else %}
+                            {% set url = item.getImagePath() %}
+                        {% endif %}
+                        <li class="col-md-4 " data-src="{{ url }}">
+                            <img src="{{ item.getImagePath() }}" class="img-responsive"/>
+                        </li>
+                    {% endfor %}
                 </ul>
-                <div class="col-md-4 ">
+            {% endfor %}
 
-                    <div class="portfolio-item awesome mix_all" data-cat="awesome" >
-
-
-                        <img src="/img/portfolio/g.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info " title="Image Title Here" href="assets/img/portfolio/g.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div class="portfolio-item landscape mix_all" data-cat="landscape" >
-
-
-                        <img src="/img/portfolio/b.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/b.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div class="portfolio-item nature mix_all" data-cat="nature" >
-
-
-                        <img src="/img/portfolio/c.png" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/c.png"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row " style="padding-top: 50px;">
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item nature mix_all" data-cat="nature" >
-
-
-                        <img src="/img/portfolio/d.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info " title="Image Title Here" href="assets/img/portfolio/d.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item nature mix_all" data-cat="nature" >
-
-
-                        <img src="/img/portfolio/e.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/e.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item nature mix_all" data-cat="nature" >
-
-
-                        <img src="/img/portfolio/h.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/h.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row "  style="padding-top: 50px;" >
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item nature mix_all" data-cat="nature" >
-
-
-                        <img src="/img/portfolio/g.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview  btn btn-info" title="Image Title Here" href="assets/img/portfolio/g.jpg"> <i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item awesome mix_all" data-cat="awesome" >
-
-
-                        <img src="/img/portfolio/b.jpg" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/b.jpg"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-
-                    <div  class="portfolio-item nature landscape mix_all" data-cat="nature landscape" >
-
-
-                        <img src="/img/portfolio/c.png" class="img-responsive " alt="" />
-                        <div class="overlay">
-                            <p>
-                                <span>
-                                Image Orinagal Size: 750x500
-                                </span>
-
-                                PROJECT TITLE HERE
-                            </p>
-                            <a class="preview btn btn-info" title="Image Title Here" href="assets/img/portfolio/c.png"><i class="fa fa-plus fa-2x"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
         </div>
     </div>

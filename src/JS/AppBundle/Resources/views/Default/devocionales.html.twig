@@ -3,13 +3,9 @@
     <div class="below-slideshow">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="txt-block">
-
-
                         <h1 class="head-line">DEVOCIONALES</h1>
-
                     </div>
                 </div>
             </div>
@@ -20,107 +16,41 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="tag-home"> Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Mauris
-                    sagittis felis dolor vitae. Mauris sagittis felis dolor vitae Mauris sagittis felis dolor vitae.
-                </h1>
+                <h1 class="tag-home">CAMBIAR TEXTO</h1>
                 <hr/>
             </div>
         </div>
     </div>
     <!-- TAG HOME SECTION END-->
     <div class="just-sec">
-
-
         <div class="container">
             {% for keyAno, ano in devocionales %}
                 <h3>{{ keyAno }}</h3>
-
-                    <div class="bs-example bs-example-tabs">
-                        <ul class="nav nav-tabs" role="tablist">
-
-                            {% for keyMes, mes in ano|reverse %}
-                                {% if loop.first %}
-                                    <li role="presentation" class="active">
-                                        <a href="#{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}" role="tab" data-toggle="tab" aria-controls="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-expanded="true">
-                                            {{ keyMes }}
-                                        </a>
-                                    </li>
-                                {% else %}
-                                    <li role="presentation" class="">
-                                        <a href="#{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" role="tab" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}" data-toggle="tab" aria-controls="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-expanded="false">
-                                            {{ keyMes }}
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-
-
-                        </ul>
-                        <div class="tab-content">
-
-                            {% for keyMes, mes in ano|reverse %}
-                                {% if loop.first %}
-                                    <div class="tab-pane fade active in" role="tabpanel" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-labelledby="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}">
-                                        <ul>
-                                            {% for keySemana, devocionalArray in (mes) %}
-                                                <li>
-                                                    <div>
-                                                        <h5>{{ keySemana }}</h5>
-                                                        {% for devocional in devocionalArray %}
-                                                            <p>Devocional: {{ devocional.nombre }}</p>
-                                                        {% else %}
-                                                            <h3>Próximamente nuevos devocionales de esta semana.</h3>
-                                                        {% endfor %}
-
-                                                    </div>
-                                                </li>
-                                            {% else %}
-                                                <li>
-                                                    <div>
-                                                        <h3>Próximamente nuevos devocionales de este mes.</h3>
-                                                    </div>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                {% else %}
-                                    <div class="tab-pane fade" role="tabpanel" id="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes }}" aria-labelledby="{{ 'tab-' ~ keyAno ~ '-' ~ keyMes ~ '-tab' }}">
-                                        <ul>
-                                            {% for keySemana, devocionalArray in (mes) %}
-                                                <li>
-                                                    <div>
-                                                        <p>{{ keySemana }}</p>
-                                                        {% for devocional in devocionalArray %}
-                                                            <h5>Devocional: {{ devocional.nombre }}</h5>
-                                                        {% else %}
-                                                            <h3>Próximamente nuevos devocionales de esta semana.</h3>
-                                                        {% endfor %}
-                                                    </div>
-                                                </li>
-                                            {% else %}
-                                                <li>
-                                                    <div>
-                                                        <h3>Próximamente nuevos devocionales de este mes.</h3>
-                                                    </div>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-
-
-
-                        </div>
+                <div class="bs-devolcional-tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        {% for keyMes, mes in ano|reverse %}
+                            {% set params = {
+                            'active' : loop.first,
+                            'keyAno' : keyAno,
+                            'keyMes' : keyMes,
+                            } %}
+                            {% include '@JSApp/Default/partials/item_devocional_tab.html.twig' with params only %}
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content">
+                        {% for keyMes, mes in ano|reverse %}
+                            {% set params = {
+                            'active': loop.first,
+                            'keyAno' : keyAno,
+                            'keyMes' : keyMes,
+                            'mes'    : mes,
+                            } %}
+                            {% include '@JSApp/Default/partials/item_devolcional.html.twig' with params only %}
+                        {% endfor %}
                     </div>
-
-
-
+                </div>
             {% endfor %}
+
         </div>
     </div>
-    <!--JUST SECTION END-->
-    <!-- PARALLAX LIKE SECTION END-->
-    <!--CLIENT SECTION END-->
-    <!--SET-DIV SECTION END-->
 {% endblock %}

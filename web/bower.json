@@ -1,0 +1,17 @@
+{
+  "name": "casa-grande",
+  "description": "Iglesia",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Luis"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Luisva74/Ministerio_Casa_Grande",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

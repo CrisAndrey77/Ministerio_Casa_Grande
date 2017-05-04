@@ -4,6 +4,7 @@ namespace JS\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  *  Predica
@@ -39,7 +40,7 @@ class Predica
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
@@ -310,5 +311,10 @@ class Predica
     public function getDescripcionBreve()
     {
         return $this->descripcionBreve;
+    }
+
+    public function __toString()
+    {
+        return $this->getId() ? $this->getNombre() : "Nuevo";
     }
 }

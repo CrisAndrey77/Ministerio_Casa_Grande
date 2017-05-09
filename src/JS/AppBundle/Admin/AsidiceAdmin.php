@@ -2,6 +2,7 @@
 
 namespace JS\AppBundle\Admin;
 
+use JS\AppBundle\Entity\Asidice;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -68,5 +69,32 @@ class AsidiceAdmin extends Admin
             ->add('descripcion')
             ->add('fecha')
         ;
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function preUpdate($object)
+    {
+        $this->updateSlug($object);
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateSlug(Asidice $object)
+    {
+        $object->setSlug($this->urlize($object->getNombre()));
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prePersist($object)
+    {
+        $this->updateSlug($object);
     }
 }

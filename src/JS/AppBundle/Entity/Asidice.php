@@ -57,6 +57,10 @@ class Asidice
      * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\Autor", inversedBy="asiDicen")
      * @ORM\JoinColumn(name="autor_id", referencedColumnName="id", nullable=true)
      */
+
+
+
+
     protected $autor;
 
     /**
@@ -120,6 +124,14 @@ class Asidice
 
         return $this;
     }
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string")
+     */
+    private $slug;
 
     /**
      * Get descripcion
@@ -245,5 +257,28 @@ class Asidice
     public function getDescripcionBreve()
     {
         return $this->descripcionBreve;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Asidice
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

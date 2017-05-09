@@ -36,16 +36,27 @@
 
                 {% for predica in predicas %}
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        <a href="{{ path('asidice_Detalle',{'asidice':predica.slug}) }}" class="predicaBlock">
                         <div class="just-txt-div">
-                            <h2><strong>{{ predica.nombre }} </strong>  </h2>
-                            {{ predica.descripcionBreve | raw }}
+
+                                <h2><strong>{{ predica.nombre }} </strong>  </h2>
+                                {{ predica.descripcionBreve | raw }}
+
 
                         </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
+
+
+
+
+
+
     <!--JUST SECTION END-->
     <!-- PARALLAX LIKE SECTION END-->
     <!--CLIENT SECTION END-->

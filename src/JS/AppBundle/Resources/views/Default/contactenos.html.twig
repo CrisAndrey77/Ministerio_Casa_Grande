@@ -87,6 +87,41 @@
                 </div>
 
             </div>
-
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                 <div id="map"></div>
+            </div>
+        </div>
+   {% endblock %}
+{% block scripts %}
+    <script>
+        function initMap() {
+
+            var hatillo = new google.maps.LatLng(9.9176385,-84.1007037);
+            var orotina = new google.maps.LatLng(9.893054,-84.6437828);
+
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng(9.9488802,-84.3887259),
+                scrollwheel: false,
+                zoom: 10
+            });
+
+            // Create a marker and set its position.
+            var markerHatillo = new google.maps.Marker({
+                map: map,
+                position: hatillo,
+                title: 'Ministerio Hatillo'
+            });
+
+            var markerOrotina = new google.maps.Marker({
+                map: map,
+                position: orotina,
+                title: 'Ministerio Orotina'
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA88OodS0osXt2Cy2s1EhqOY9QTZkjbKZU&callback=initMap" async defer></script>
+
 {% endblock %}

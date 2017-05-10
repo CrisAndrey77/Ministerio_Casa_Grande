@@ -153,3 +153,8 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+
+.lightgallery li img {
+  max-height: 125px;
+  min-height: 120px;
+}

@@ -45,8 +45,8 @@ class GaleriaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nombre')
-            ->add('posicion',null,['label'=> 'Iglesia'])
+            ->add('nombre',null,['label'=>'Iglesia (Seleccione "Hatillo" u "Orotina" por galería)'])
+            ->add('posicion',null,['label'=> 'Posición'])
             ->add('items', 'sonata_type_collection', [
                 'type_options' => [
 

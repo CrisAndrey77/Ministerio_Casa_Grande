@@ -46,22 +46,44 @@ sonata_admin:
             predicas:
                 label: 'Prédicas'
                 items:
-                  - js_app.admin.autor
-                  - js_app.admin.categoria_predica
                   - js_app.admin.predica
+                roles: [ROLE_PREDICA]
+
+            autor:
+                label: 'Autor'
+                items:
+                  - js_app.admin.autor
+                roles: [ROLE_AUTOR]
+
+            categoria_predica:
+                label: 'Categoría de Prédicas'
+                items:
+                  - js_app.admin.categoria_predica
+                roles: [ROLE_CATEGORIA_PREDICA]
+
+            devocional:
+                label: 'Devocional'
+                items:
                   - js_app.admin.predica_devocional
+                roles: [ROLE_DEVOCIONAL]
+
+            asi_dice:
+                label: 'Así dice su Palabra'
+                items:
                   - js_app.admin.asidice
+                roles: [ROLE_ASI_DICE]
 
             galeria:
                 label: 'Galerías'
                 items:
                   - js_app.admin.galeria
-
+                roles: [ROLE_GALERIA]
 
             contacto:
-                label: Contactenos
+                label: 'Contáctenos'
                 items:
                   - js_app.admin.contacto
+                roles: [ROLE_CONTACTO]
 
 
 

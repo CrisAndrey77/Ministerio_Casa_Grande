@@ -32,7 +32,6 @@ sonata_admin:
     # title_logo: bundles/lumenapp/img/dummy.png
     templates:
         layout:  SonataAdminBundle::layout.html.twig
-        user_block:  SonataAdminBundle:Core:user_block.html.twig
     dashboard:
         blocks:
             - { position: left,  type: sonata.admin.block.admin_list }

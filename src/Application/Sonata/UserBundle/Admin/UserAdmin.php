@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 namespace Application\Sonata\UserBundle\Admin;
 
 //use Sonata\AdminBundle\Admin\Admin;
@@ -26,33 +27,56 @@ use Doctrine\ORM\EntityRepository;
  * @author
  */
 class UserAdmin extends SonataUserAdmin
-{   
+{
     public function configureFormFields(FormMapper $formMapper)
     {
-    	$image = $this->getSubject();
-        $fileFieldOptions = array();
-        $fileFieldOptions['required'] = false;
-        $fileFieldOptions['label'] = 'Foto';
+        $user = $this->getSubject();
 
-        if ($image && ($webPath = $image->getWebPath())) {
-            // get the container so the full path to the image can be set
-            $container = $this->getConfigurationPool()->getContainer();
-            $fullPath = '/' . $webPath;
-            if ($image->getWebPath() != '') {
-                // add a 'help' option containing the preview's img tag
-                $fileFieldOptions['help'] = '<img src="' . $fullPath . '" alt="imagen" width="150" /a>';
-            }
-        }
-        parent::configureFormFields($formMapper);
-        $formMapper->add('dateOfBirth','sonata_type_date_picker',[
-                                        'format'        => 'dd/MM/yyyy',
-                                        'dp_use_current'=> false,
-        ]);
-        $formMapper->add('file','file', $fileFieldOptions);        
+        $formMapper
+            ->tab('General')
+                ->with('General', ['class' => 'col-xs-12 col-sm-6 col-md-6 col-lg-6'])
+                    ->add('username')
+                    ->add('email')
+                    ->add('plainPassword', 'text', array(
+                        'required' => ( !$this->getSubject() || is_null($this->getSubject()->getId()) )
+                    ))
+                    ->add('enabled', null, array( 'required' => false ))
+                ->end()
+                ->with('Groups', ['class' => 'col-xs-12 col-sm-6 col-md-6 col-lg-6'])
+                    ->add('groups', 'sonata_type_model', array(
+                        'required' => false,
+                        'expanded' => true,
+                        'multiple' => true,
+                        'btn_add'  => false
+                    ))
+                ->end()
+            ->end()
+        ;
+
+
     }
-    
+
     protected function configureListFields(\Sonata\AdminBundle\Datagrid\ListMapper $listMapper)
     {
-        parent::configureListFields($listMapper);
+        $listMapper
+            ->addIdentifier('username')
+            ->add('email')
+            ->add('groups')
+            ->add('enabled', null, array('editable' => true))
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getNewInstance()
+    {
+        /** @var $object User */
+        $object = $this->getModelManager()->getModelInstance($this->getClass());
+        foreach ($this->getExtensions() as $extension) {
+            $extension->alterNewInstance($this, $object);
+        }
+        $object->setEnabled(true);
+        return $object;
     }
 }

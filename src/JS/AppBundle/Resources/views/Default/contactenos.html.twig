@@ -5,32 +5,26 @@
     <div class="below-slideshow">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="txt-block">
-
-
                         <h1 class="head-line">CONTÁCTENOS</h1>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- BELOW SLIDESHOW SECTION END-->
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="tag-home">Puede dejar su sugerencia o mensaje en este espacio, o si desea información sobre cómo llegar a nuestros locales en Hatillo u Orotina <strong>¡Dios te Bendiga!</strong></h1>
-                <hr />
+                <h1 class="tag-home">Puede dejar su sugerencia o mensaje en este espacio, o si desea información sobre
+                    cómo llegar a nuestros locales en Hatillo u Orotina <strong>¡Dios te Bendiga!</strong></h1>
+                <hr/>
             </div>
         </div>
     </div>
     <!-- TAG HOME SECTION END-->
     <div class="just-sec">
-
-
         <div class="container">
 
             <div class="row">
@@ -39,46 +33,27 @@
 
 
                         <h2>Información del Ministerio: </h2>
-                        <p >
-                            San José, Hatillo 2: 50 metros al este de Óptica Mundial.
-                            <br />
-                        </p>
-                        <p >
-                            Alajuela, Orotina: Ruta 27, Kilómetro 81.
-                            <br />
-                        </p>
-                        <p >
-                            Costa Rica
-                            <br />
-                        </p>
-                        <p>
-                            <strong>  Hatillo</strong> (506) 2254 - 3808
-                        </p>
-                        <p>
-                            <strong>  Orotina</strong> (506) 2428 - 3495
-                        </p>
-                        <p>
-                            <strong>  E-mail: </strong> ministeriocasagrande@gmail.com
-                        </p>
+                        <p>San José, Hatillo 2: 50 metros al este de Óptica Mundial.<br/></p>
+                        <p>Alajuela, Orotina: Ruta 27, Kilómetro 81.<br/></p>
+                        <p>Costa Rica<br/></p>
+                        <p><strong> Hatillo</strong> (506) 2254 - 3808</p>
+                        <p><strong> Orotina</strong> (506) 2428 - 3495</p>
+                        <p><strong> E-mail: </strong> ministeriocasagrande@gmail.com</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="just-txt-div">
-
-
-
-
                         <div class="form-group">
                             <label>Correo Electrónico</label>
-                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>Asunto</label>
-                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text"/>
                         </div>
                         <div class="form-group">
                             <label>Mensaje</label>
-                            <textarea class="form-control"  rows="5"></textarea>
+                            <textarea class="form-control" rows="5"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-success btn-lg">Enviar</button>
@@ -88,22 +63,32 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                 <div id="map"></div>
+        <div class="container wrp-waze text-center hidden-sm hidden-md hidden-lg">
+            <a href="waze://?ll=9.9176385,-84.1007037&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Hatillo</a>
+            <a href="waze://?ll=9.9176385,-84.1007037&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Orotina</a>
+        </div>
+        <div class="container wrp-waze text-center hidden-xs">
+            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.9176385&lon=-84.1007037"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Hatillo</a>
+            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.893054&lon=-84.6437828"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Orotina</a>
+        </div>
+        <div class="row nopadding">
+            <div class="col-md-12 nopadding">
+                <div id="map"></div>
             </div>
         </div>
-   {% endblock %}
+    </div>
+
+{% endblock %}
 {% block scripts %}
     <script>
         function initMap() {
 
-            var hatillo = new google.maps.LatLng(9.9176385,-84.1007037);
-            var orotina = new google.maps.LatLng(9.893054,-84.6437828);
+            var hatillo = new google.maps.LatLng(9.9176385, -84.1007037);
+            var orotina = new google.maps.LatLng(9.893054, -84.6437828);
 
             // Create a map object and specify the DOM element for display.
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: new google.maps.LatLng(9.9488802,-84.3887259),
+                center: new google.maps.LatLng(9.9488802, -84.3887259),
                 scrollwheel: false,
                 zoom: 10
             });
@@ -122,6 +107,7 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA88OodS0osXt2Cy2s1EhqOY9QTZkjbKZU&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA88OodS0osXt2Cy2s1EhqOY9QTZkjbKZU&callback=initMap"
+            async defer></script>
 
 {% endblock %}

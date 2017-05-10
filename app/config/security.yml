@@ -14,6 +14,17 @@ security:
         ROLE_BUYER        : [ROLE_USER]
         SONATA:
             - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT
+        ROLE_ASI_DICE:            [ROLE_ASI_DICE]
+        ROLE_DEVOCIONAL:          [ROLE_DEVOCIONAL]
+        ROLE_PREDICA:             [ROLE_PREDICAS]
+        ROLE_CATEGORIA_PREDICA:   [ROLE_CATEGORIA_PREDICA]
+        ROLE_AUTOR:               [ROLE_AUTOR]
+        ROLE_GALERIA:             [ROLE_GALERIA]
+        ROLE_CONTACTO:            [ROLE_CONTACTO]
+        ROLE_USUARIO:             [ROLE_USUARIO]
+        ROLE_GRUPO:               [ROLE_GRUPO]
+
+
 
     providers:
         fos_userbundle:

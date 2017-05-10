@@ -123,3 +123,33 @@
   height: 400px;
   width: 100%;
 }
+
+
+.wrp-waze{
+  margin-bottom: 20px;
+  a{
+    display: inline-block;
+    padding: 0 20px;
+    transition: ease all 0.5s;
+    &:hover{
+      color: darken($azulcasa, 20%);
+      img{
+        background: $azulcasa;
+        border-color: darken($azulcasa, 20%);
+      }
+    }
+  }
+  img {
+    display: inline-block;
+    width: 60px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 100%;
+    transition: ease all 0.5s;
+  }
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}

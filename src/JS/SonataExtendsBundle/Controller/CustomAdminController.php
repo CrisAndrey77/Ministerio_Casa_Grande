@@ -23,7 +23,7 @@ class CustomAdminController extends Controller
      */
     protected function configure()
     {
-        $adminCode = 'sonata.admin.lumen.extends.base';
+        $adminCode = 'js.admin.lumen.extends.base';
         
         if (!$adminCode) 
         {

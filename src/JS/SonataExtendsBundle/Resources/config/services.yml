@@ -1,15 +1,15 @@
 services:
-    JS.sontaextends.extendsblock:
+    js.sontaextends.extendsblock:
         id: JS.sontaextends.extendsblock
         class: JS\SonataExtendsBundle\Block\ExtendsBlockService
         arguments:
             - @service_container
-            - JS.sontaextends.extendsblock
+            - js.sontaextends.extendsblock
             - @templating
         tags:
             - { name: sonata.block }
             
-    sonata.admin.JS.extends.base:
+    sonata.admin.js.extends.base:
         class: JS\SonataExtendsBundle\Admin\FakeAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "JSExtendsBaseAdmin", label: "JSExtendsBaseAdmin" }

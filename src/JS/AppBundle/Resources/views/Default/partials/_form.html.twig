@@ -1,0 +1,38 @@
+<div class="just-txt-div">
+    {{ form_start(form, {'attr': { 'class': 'frm-send-wdg' } }) }}
+
+    <div class="form-group">
+        {{ form_label(form.nombre) }}
+        {{ form_widget(form.nombre, {'attr': {'class': 'form-control frm-name'}}) }}
+        {{ form_errors(form.nombre) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.correo) }}
+        {{ form_widget(form.correo, {'attr': {'class': 'form-control frm-email'}}) }}
+        {{ form_errors(form.correo) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.telefono) }}
+        {{ form_widget(form.telefono, {'attr': {'class': 'form-control frm-phone'}}) }}
+        {{ form_errors(form.telefono) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.mensaje) }}
+        {{ form_widget(form.mensaje, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.mensaje) }}
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+    <div class="content-thanks-wdg"></div>
+    <div class="spinner hide">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+
+</div>

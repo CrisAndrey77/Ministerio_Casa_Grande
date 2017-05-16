@@ -3,6 +3,7 @@
 namespace JS\AppBundle\Controller;
 
 use JS\AppBundle\Entity\Contacto;
+use JS\AppBundle\Entity\PredicaDevocional;
 use JS\AppBundle\Form\ContactoType;
 use JS\ImportsBundle\Controller\JSController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -61,6 +62,14 @@ class DefaultController extends JSController
         return $this->render('JSAppBundle:Default:devocionales.html.twig', [ 'devocionales' => $devocionales ]);
     }
 
+    /**
+     * @Route("/devocionales/{slug}", name="devocional_item")
+     */
+    public function devocionalesItemAction(PredicaDevocional $predicaDevocional)
+    {
+        return $this->render('JSAppBundle:Default:devocionalDetalle.html.twig', [ 'predica' => $predicaDevocional ]);
+    }
+
 
     /**
      * @Route("/galerias", name="galerias")
@@ -102,7 +111,9 @@ class DefaultController extends JSController
             'action' => $this->generateUrl('contactenos_save')
         ]);
 
-        return $this->render('JSAppBundle:Default:contactenos.html.twig', []);
+        return $this->render('JSAppBundle:Default:contactenos.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
@@ -118,10 +129,18 @@ class DefaultController extends JSController
         ]);
         $form->handleRequest($request);
         if ($form->isValid()) {
-            return $this->renderJson([]);
+            $this->getEntityManager()->getRepository('JSAppBundle:Contacto')->saveAndSend($contact, $this->get('mailer'), $this->get('twig'), $this->getParameter('mailer_user'));
+            return $this->renderJson([
+                                         'msn' => 'OK'
+                                     ]);
         }
 
-        return $this->renderJson([]);
+        return $this->renderJson([
+                                     'msn'  => 'FORM_ERROR',
+                                     'view' => $this->renderView('@JSApp/Default/partials/_form.html.twig', [
+                                         'form' => $form->createView()
+                                     ])
+                                 ]);
     }
 
 }

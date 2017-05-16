@@ -42,7 +42,7 @@
                                 {#<img src="{{ categoria.getImagePath() }}" alt="" class="img-circle set-about-img"  />#}
                                 <h2><strong>{{ predica.nombre }} </strong></h2>
                                 <h3><strong>Autor </strong>{{ predica.autor.nombre }}</h3>
-                                <h3> {{ predica.fecha | date('d-m-Y') }} </h3>
+                                <h3> {{ predica.fecha | localizeddate('long', 'none', 'es') }} </h3>
                                 <p >
                                     {{ predica.descripcionBreve|raw }}
                                 </p>

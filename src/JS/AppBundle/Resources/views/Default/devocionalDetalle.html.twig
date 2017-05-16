@@ -9,7 +9,8 @@
 
 
                         <h1 class="head-line">{{ predica.nombre }}</h1>
-                        <h2>Fecha {{ predica.fecha | localizeddate('long', 'none', 'es') }} </h2>
+                        <h2>Del {{ predica.fechaInicio | localizeddate('long', 'none', 'es') }}
+                            al {{ predica.fechaFinal   | localizeddate('long', 'none', 'es') }}</h2>
 
                     </div>
                 </div>
@@ -17,28 +18,13 @@
 
         </div>
     </div>
-    <!-- BELOW SLIDESHOW SECTION END-->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="tag-home">
-                        {{ predica.descripcionBreve | raw }}
-                </h1>
-                <hr />
-            </div>
-        </div>
-    </div>
-    <!-- TAG HOME SECTION END-->
     <div class="just-sec">
-
         <div class="container">
-
             <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 predicaBlock">
-                        {{ predica.descripcion|raw }}
-                    </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 predicaBlock">
+                    {{ predica.descripcion|raw }}
+                </div>
             </div>
-
         </div>
     </div>
     <!--JUST SECTION END-->

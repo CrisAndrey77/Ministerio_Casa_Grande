@@ -60,6 +60,13 @@ class PredicaDevocional
     private $semana;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string")
+     */
+    private $slug;
+
+    /**
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
@@ -348,5 +355,28 @@ class PredicaDevocional
     public function __toString()
     {
         return $this->getId() ? $this->getNombre() : "Nuevo";
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return PredicaDevocional
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

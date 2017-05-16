@@ -12,4 +12,27 @@ use Doctrine\ORM\EntityRepository;
  */
 class ContactoRepository extends EntityRepository
 {
+    public function saveAndSend(Contacto $contact, \Swift_Mailer $mailer, \Twig_Environment $engine, $emailFrom)
+    {
+        $em = $this->getEntityManager();
+        $em->persist($contact);
+        $em->flush();
+        $this->sendMail($contact, $mailer, $engine, $emailFrom);
+    }
+
+    public function sendMail(Contacto $contact, \Swift_Mailer $mailer, \Twig_Environment $engine, $emailFrom)
+    {
+        $template = $engine->render('@JSApp/Default/email/contact.html.twig', [ 'contact' => $contact ]);
+        $message  = \Swift_Message::newInstance()
+                                  ->setSubject('Contactenos Ministerio Casa Grande')
+                                  ->setFrom($emailFrom)
+                                  ->setTo([
+                                              'joseseguranietzen@gmail.com', 'luisva74@yahoo.com'
+                                          ])
+                                  ->setBody($template,
+                                            'text/html'
+                                  )
+        ;
+        $mailer->send($message);
+    }
 }

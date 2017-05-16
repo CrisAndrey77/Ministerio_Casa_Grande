@@ -57,10 +57,6 @@ class Asidice
      * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\Autor", inversedBy="asiDicen")
      * @ORM\JoinColumn(name="autor_id", referencedColumnName="id", nullable=true)
      */
-
-
-
-
     protected $autor;
 
     /**

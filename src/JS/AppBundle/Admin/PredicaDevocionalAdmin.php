@@ -2,6 +2,7 @@
 
 namespace JS\AppBundle\Admin;
 
+use JS\AppBundle\Entity\PredicaDevocional;
 use JS\AppBundle\Entity\PredicaDevocionalRepository;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -84,5 +85,29 @@ class PredicaDevocionalAdmin extends Admin
             ->add('createdAt')
             ->add('updatedAt')
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function preUpdate($object)
+    {
+        $this->updateSlug($object);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateSlug(PredicaDevocional $object)
+    {
+        $object->setSlug($this->urlize($object->getNombre()));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prePersist($object)
+    {
+        $this->updateSlug($object);
     }
 }

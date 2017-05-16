@@ -41,40 +41,29 @@
                         <p><strong> E-mail: </strong> ministeriocasagrande@gmail.com</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="just-txt-div">
-                        <div class="form-group">
-                            <label>Correo Electrónico</label>
-                            <input class="form-control" type="text"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Asunto</label>
-                            <input class="form-control" type="text"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Mensaje</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-success btn-lg">Enviar</button>
-
-                    </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 contact_wrp">
+                    {% include '@JSApp/Default/partials/_form.html.twig' with { 'form' : form } %}
                 </div>
 
             </div>
         </div>
         <div class="container wrp-waze text-center hidden-sm hidden-md hidden-lg">
-            <a href="waze://?ll=9.9176385,-84.1007037&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Hatillo</a>
-            <a href="waze://?ll=9.893054,-84.6437828&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Orotina</a>
+            <a href="waze://?ll=9.9176385,-84.1007037&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}"
+                                                                         alt="">Ministerio Hatillo</a>
+            <a href="waze://?ll=9.893054,-84.6437828&navigate=yes"><img src="{{ asset('img/structure/waze.png') }}"
+                                                                        alt="">Ministerio Orotina</a>
         </div>
         <div class="container wrp-waze text-center hidden-xs">
-            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.9176385&lon=-84.1007037"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Hatillo</a>
-            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.893054&lon=-84.6437828"><img src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Orotina</a>
+            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.9176385&lon=-84.1007037"><img
+                        src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Hatillo</a>
+            <a href="https://www.waze.com/es/livemap?zoom=15&lat=9.893054&lon=-84.6437828"><img
+                        src="{{ asset('img/structure/waze.png') }}" alt="">Ministerio Orotina</a>
         </div>
-        <div class="row nopadding">
-            <div class="col-md-12 nopadding">
-                <div id="map"></div>
-            </div>
+
+    </div>
+    <div class="row nopadding">
+        <div class="col-md-12 nopadding">
+            <div id="map"></div>
         </div>
     </div>
 
@@ -111,3 +100,4 @@
             async defer></script>
 
 {% endblock %}
+{% block class_footer %}footer-nomargin{% endblock %}

@@ -7,7 +7,7 @@
                 <div>
                     <h4>{{ keySemana }}</h4>
                     {% for devocional in devocionalArray %}
-                        <a href="#">{{ devocional.nombre }}</a>
+                        <a href="{{ path('devocional_item', { 'slug' : devocional.slug }) }}">{{ devocional.nombre }}</a>
                     {% else %}
                         <p>Próximamente nuevos devocionales de esta semana.</p>
                     {% endfor %}

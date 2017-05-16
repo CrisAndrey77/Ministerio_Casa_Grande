@@ -2,8 +2,10 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: @JSSonataExtendsBundle/Resources/config/services.yml }
     - { resource: sonata.yml }
     - { resource: vendor.yml }
+
 
 parameters:
     locale: es

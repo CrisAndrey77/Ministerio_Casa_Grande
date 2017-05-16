@@ -18,7 +18,7 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
             contexts: [admin]
-        lumen.sontaextends.extendsblock: ~
+        js.sontaextends.extendsblock: ~
 
 sonata_user:
     security_acl: true
@@ -35,7 +35,7 @@ sonata_admin:
     dashboard:
         blocks:
             - { position: left,  type: sonata.admin.block.admin_list }
-       #     - { position: right, type: lumen.sontaextends.extendsblock }
+            - { position: left, type: js.sontaextends.extendsblock }
         groups:
             User:
                 label: 'Usuarios'
@@ -98,17 +98,17 @@ sonata_admin:
 js_sonata_extends:
     config:
         groups:
-            ~
-#            Reportes:
-#                label: Reportes
-#                items:
-#                    'Bitacora':
-#                        actions:
-#                            show_bitacora:
-#                                routingType: 'local' # Utiliza una ruta del sistema
-#                                routing: 'home_bitacora'
-#                                label: 'Ver bitacora'
-#                                roles: []
+
+            Manual:
+                label: Manual
+                items:
+                    'Manual':
+                        actions:
+                            show_bitacora:
+                                routingType: 'external' # Utiliza una ruta del sistema
+                                routing: 'http://www.google.com'
+                                label: 'Manual'
+                                roles: []
 #                    'Algo':
 #                        actions:
 #                            show_algo:

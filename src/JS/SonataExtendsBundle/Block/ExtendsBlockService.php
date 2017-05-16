@@ -39,20 +39,20 @@ class ExtendsBlockService extends BaseBlockService
 
     public function getName()
     {
-        return 'LumenSonataExtends';
+        return 'JSSonataExtends';
     }
 
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'title'    => 'Lumen Extends Bundle',
-            'template' => 'LumenSonataExtendsBundle:Block:admin.html.twig',
+            'title'    => 'JS Extends Bundle',
+            'template' => 'JSSonataExtendsBundle:Block:admin.html.twig',
         ));
     }
     
     public function execute(BlockContextInterface $blockContext, Response $response = null) 
     {
-        $options = $this->container->getParameter('lumen_sonata_extends');
+        $options = $this->container->getParameter('js_sonata_extends');
         
         return $this->renderPrivateResponse($blockContext->getTemplate(), array(
                 'block' => $blockContext->getBlock(),

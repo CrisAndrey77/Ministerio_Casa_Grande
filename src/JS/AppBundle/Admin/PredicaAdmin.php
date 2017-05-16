@@ -90,7 +90,7 @@ class PredicaAdmin extends Admin
      */
     public function updateSlug(Predica $object)
     {
-        $object->setSlug($this->urlize($object->getNombre() . '_' . $object->getCategoriaPredica()?$object->getCategoriaPredica()->getNombre():''));
+        $object->setSlug($this->urlize($object->getNombre() . '_' . ($object->getCategoriaPredica()?$object->getCategoriaPredica()->getNombre():'')));
     }
 
     /**

@@ -56,7 +56,6 @@ class ContactoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
 //        $formMapper
-//            ->add('id')
 //            ->add('nombre')
 //            ->add('correo')
 //            ->add('mensaje')

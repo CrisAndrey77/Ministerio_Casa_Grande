@@ -40,16 +40,9 @@ class Autor
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="JS\AppBundle\Entity\Predica", mappedBy="categoriaPredica", cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="JS\AppBundle\Entity\Predica", mappedBy="autor", cascade={"all"}, orphanRemoval=true)
      */
     protected $predicas;
-
-    /**
-     *
-     * @ORM\OneToMany(targetEntity="JS\AppBundle\Entity\PredicaDevocional", mappedBy="categoriaPredica", cascade={"all"}, orphanRemoval=true)
-     */
-    protected $devocionales;
-
 
     /**
      * @var datetime $created

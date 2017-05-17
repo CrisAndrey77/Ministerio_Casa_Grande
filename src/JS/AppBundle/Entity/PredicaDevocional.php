@@ -82,8 +82,6 @@ class PredicaDevocional
      */
     protected $updatedAt;
 
-
-
     /**
      * Get id
      *

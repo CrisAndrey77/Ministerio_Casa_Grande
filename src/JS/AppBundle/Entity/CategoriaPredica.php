@@ -80,12 +80,6 @@ class CategoriaPredica
     protected $predicas;
 
     /**
-     *
-     * @ORM\OneToMany(targetEntity="JS\AppBundle\Entity\PredicaDevocional", mappedBy="categoriaPredica", cascade={"all"}, orphanRemoval=true)
-     */
-    protected $devocionales;
-
-    /**
      * Get id
      *
      * @return integer 

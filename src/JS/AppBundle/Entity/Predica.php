@@ -52,7 +52,6 @@ class Predica
      */
     private $slug;
 
-
     /**
      *
      * @ORM\ManyToOne(targetEntity="JS\AppBundle\Entity\CategoriaPredica", inversedBy="predicas")

@@ -106,7 +106,7 @@ js_sonata_extends:
                         actions:
                             show_bitacora:
                                 routingType: 'external' # Utiliza una ruta del sistema
-                                routing: 'http://www.google.com'
+                                routing: '/documento/Manual_de_Usuario_Ministerio_Casa_Grande.pdf'
                                 label: 'Manual'
                                 roles: []
 #                    'Algo':

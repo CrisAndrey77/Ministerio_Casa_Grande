@@ -66,21 +66,21 @@ class AppKernel extends Kernel
         parent::init();
     }
 
-    public function getCacheDir()
-    {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/var/trash/cache/' .  $this->environment;
-        }
-
-        return parent::getCacheDir();
-    }
-
-    public function getLogDir()
-    {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/logs';
-        }
-
-        return parent::getLogDir();
-    }
+//    public function getCacheDir()
+//    {
+//        if (in_array($this->environment, array('dev', 'test'))) {
+//            return '/var/trash/cache/' .  $this->environment;
+//        }
+//
+//        return parent::getCacheDir();
+//    }
+//
+//    public function getLogDir()
+//    {
+//        if (in_array($this->environment, array('dev', 'test'))) {
+//            return '/dev/shm/logs';
+//        }
+//
+//        return parent::getLogDir();
+//    }
 }

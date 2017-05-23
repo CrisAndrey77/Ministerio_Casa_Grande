@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * References :
  *   bundles : http://symfony.com/doc/current/book/bundles.html
  *
- * @author Jose Segura
+ * @author Luis Vega
  */
 class ApplicationSonataUserBundle extends Bundle
 {

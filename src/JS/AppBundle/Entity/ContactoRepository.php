@@ -27,7 +27,7 @@ class ContactoRepository extends EntityRepository
                                   ->setSubject('Contactenos Ministerio Casa Grande')
                                   ->setFrom($emailFrom)
                                   ->setTo([
-                                              'joseseguranietzen@gmail.com', 'luisva74@yahoo.com'
+                                              'ministeriocasagrande@gmail.com'
                                           ])
                                   ->setBody($template,
                                             'text/html'
